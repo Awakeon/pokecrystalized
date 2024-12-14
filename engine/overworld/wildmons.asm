@@ -898,6 +898,12 @@ RandomPhoneMon:
 	jr nz, .got_mon
 	ld a, BANK(TrainerGroups)
 	call GetFarWord
+; TRAINERTYPE_DVS uses 2 more bytes
+	bit TRAINERTYPE_DVS_F, b
+	jr z, .no_dvs
+	inc c
+	inc c
+.no_dvs
 
 .skip_trainer
 	dec e
