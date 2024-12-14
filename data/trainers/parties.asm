@@ -84,8 +84,8 @@ Rival1Group:
 	db -1 ; end
 
 	; RIVAL1 (3)
-	db "?@", TRAINERTYPE_NORMAL
-	db  5, TOTODILE
+	db "?@", TRAINERTYPE_NICKNAME
+	db  5, TOTODILE,   "JAWS@"
 	db -1 ; end
 
 	; RIVAL1 (4)

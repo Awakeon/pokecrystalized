@@ -475,6 +475,8 @@ AideScript_GivePotion:
 	writetext AideText_GiveYouPotion
 	promptbutton
 	verbosegiveitem POTION
+	loadtrainer RIVAL1, RIVAL1_1_TOTODILE
+	startbattle
 	writetext AideText_AlwaysBusy
 	waitbutton
 	closetext

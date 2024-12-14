@@ -893,6 +893,9 @@ RandomPhoneMon:
 	call GetFarByte
 	ld [wTrainerGroupBank], a
 	inc hl
+; TRAINERTYPE_NICKNAME has uneven length, so always use the first mon
+	bit TRAINERTYPE_NICKNAME_F, b
+	jr nz, .got_mon
 	ld a, BANK(TrainerGroups)
 	call GetFarWord
 
