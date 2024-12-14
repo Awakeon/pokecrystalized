@@ -58,6 +58,7 @@ TypeMatchups:
 	db GROUND,       FIRE,         SUPER_EFFECTIVE
 	db GROUND,       ELECTRIC,     SUPER_EFFECTIVE
 	db GROUND,       GRASS,        NOT_VERY_EFFECTIVE
+	db GROUND,       ICE,        NOT_VERY_EFFECTIVE
 	db GROUND,       POISON,       SUPER_EFFECTIVE
 	db GROUND,       FLYING,       NO_EFFECT
 	db GROUND,       BUG,          NOT_VERY_EFFECTIVE
