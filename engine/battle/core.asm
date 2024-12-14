@@ -1,5 +1,6 @@
 ; Core components of the battle engine.
 
+
 DoBattle:
 	xor a
 	ld [wBattleParticipantsNotFainted], a
@@ -3899,7 +3900,6 @@ InitBattleMon:
 	ld bc, PARTYMON_STRUCT_LENGTH - MON_ATK
 	call CopyBytes
 	call ApplyStatusEffectOnPlayerStats
-	call BadgeStatBoosts
 	ret
 
 BattleCheckPlayerShininess:
@@ -5689,14 +5689,18 @@ MoveInfoBox:
 	ld [wStringBuffer1], a
 	call .PrintPP
 
+	farcall UpdateMoveData
+	ld a, [wPlayerMoveStruct + MOVE_ANIM]
+	ld b, a
+	farcall GetMoveCategoryName
 	hlcoord 1, 9
-	ld de, .Type
+	ld de, wStringBuffer1
 	call PlaceString
 
-	hlcoord 7, 11
+	ld h, b
+	ld l, c
 	ld [hl], "/"
 
-	callfar UpdateMoveData
 	ld a, [wPlayerMoveStruct + MOVE_ANIM]
 	ld b, a
 	hlcoord 2, 10
@@ -5707,8 +5711,6 @@ MoveInfoBox:
 
 .Disabled:
 	db "Disabled!@"
-.Type:
-	db "TYPE/@"
 
 .PrintPP:
 	hlcoord 5, 11
@@ -6759,95 +6761,6 @@ ApplyStatLevelMultiplier:
 StatLevelMultipliers_Applied:
 INCLUDE "data/battle/stat_multipliers.asm"
 
-BadgeStatBoosts:
-; Raise the stats of the battle mon in wBattleMon
-; depending on which badges have been obtained.
-
-; Every other badge boosts a stat, starting from the first.
-; GlacierBadge also boosts Special Defense, although the relevant code is buggy (see below).
-
-; 	ZephyrBadge:  Attack
-; 	PlainBadge:   Speed
-; 	MineralBadge: Defense
-; 	GlacierBadge: Special Attack and Special Defense
-
-; The boosted stats are in order, except PlainBadge and MineralBadge's boosts are swapped.
-
-	ld a, [wLinkMode]
-	and a
-	ret nz
-
-	ld a, [wInBattleTowerBattle]
-	and a
-	ret nz
-
-	ld a, [wJohtoBadges]
-
-; Swap badges 3 (PlainBadge) and 5 (MineralBadge).
-	ld d, a
-	and (1 << PLAINBADGE)
-	add a
-	add a
-	ld b, a
-	ld a, d
-	and (1 << MINERALBADGE)
-	rrca
-	rrca
-	ld c, a
-	ld a, d
-	and ((1 << ZEPHYRBADGE) | (1 << HIVEBADGE) | (1 << FOGBADGE) | (1 << STORMBADGE) | (1 << GLACIERBADGE) | (1 << RISINGBADGE))
-	or b
-	or c
-	ld b, a
-
-	ld hl, wBattleMonAttack
-	ld c, 4
-.CheckBadge:
-; BUG: Glacier Badge may not boost Special Defense depending on the value of Special Attack (see docs/bugs_and_glitches.md)
-	ld a, b
-	srl b
-	call c, BoostStat
-	inc hl
-	inc hl
-; Check every other badge.
-	srl b
-	dec c
-	jr nz, .CheckBadge
-	srl a
-	call c, BoostStat
-	ret
-
-BoostStat:
-; Raise stat at hl by 1/8.
-
-	ld a, [hli]
-	ld d, a
-	ld e, [hl]
-	srl d
-	rr e
-	srl d
-	rr e
-	srl d
-	rr e
-	ld a, [hl]
-	add e
-	ld [hld], a
-	ld a, [hl]
-	adc d
-	ld [hli], a
-
-; Cap at 999.
-	ld a, [hld]
-	sub LOW(MAX_STAT_VALUE)
-	ld a, [hl]
-	sbc HIGH(MAX_STAT_VALUE)
-	ret c
-	ld a, HIGH(MAX_STAT_VALUE)
-	ld [hli], a
-	ld a, LOW(MAX_STAT_VALUE)
-	ld [hld], a
-	ret
-
 _LoadBattleFontsHPBar:
 	callfar LoadBattleFontsHPBar
 	ret
@@ -7152,7 +7065,8 @@ GiveExperiencePoints:
 	ld [wCurSpecies], a
 	call GetBaseData
 	push bc
-	ld d, MAX_LEVEL
+	ld a, [wLevelCap]
+	ld d, a
 	callfar CalcExpAtLevel
 	pop bc
 	ld hl, MON_EXP + 2
@@ -7187,8 +7101,12 @@ GiveExperiencePoints:
 	pop bc
 	ld hl, MON_LEVEL
 	add hl, bc
+	ld a, [wLevelCap]
+	push bc
+	ld b, a
 	ld a, [hl]
-	cp MAX_LEVEL
+	cp b
+	pop bc
 	jp nc, .next_mon
 	cp d
 	jp z, .next_mon
@@ -7435,8 +7353,12 @@ AnimateExpBar:
 	cp [hl]
 	jp nz, .finish
 
+	ld a, [wLevelCap]
+	push bc
+	ld b, a
 	ld a, [wBattleMonLevel]
-	cp MAX_LEVEL
+	cp b
+	pop bc
 	jp nc, .finish
 
 	ldh a, [hProduct + 3]
@@ -7473,7 +7395,8 @@ AnimateExpBar:
 	ld [hl], a
 
 .NoOverflow:
-	ld d, MAX_LEVEL
+	ld a, [wLevelCap]
+	ld d, a
 	callfar CalcExpAtLevel
 	ldh a, [hProduct + 1]
 	ld b, a
@@ -7508,8 +7431,12 @@ AnimateExpBar:
 	ld d, a
 
 .LoopLevels:
+	ld a, [wLevelCap]
+	push bc
+	ld b, a
 	ld a, e
-	cp MAX_LEVEL
+	cp b
+	pop bc
 	jr nc, .FinishExpBar
 	cp d
 	jr z, .FinishExpBar

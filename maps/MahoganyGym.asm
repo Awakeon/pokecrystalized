@@ -197,11 +197,6 @@ Text_ReceivedGlacierBadge:
 	line "GLACIERBADGE."
 	done
 
-PryceText_GlacierBadgeSpeech:
-	text "That BADGE will"
-	line "raise the SPECIAL"
-	cont "stats of #MON."
-
 	para "It also lets your"
 	line "#MON use WHIRL-"
 	cont "POOL to get across"

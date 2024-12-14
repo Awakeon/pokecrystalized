@@ -1215,6 +1215,7 @@ BattleCommand_Stab:
 ; STAB = Same Type Attack Bonus
 	ld a, BATTLE_VARS_MOVE_ANIM
 	call GetBattleVar
+	and TYPE_MASK
 	cp STRUGGLE
 	ret z
 
@@ -1243,6 +1244,7 @@ BattleCommand_Stab:
 .go
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVarAddr
+	and TYPE_MASK
 	ld [wCurType], a
 
 	push hl
@@ -1252,12 +1254,6 @@ BattleCommand_Stab:
 	pop bc
 	pop de
 	pop hl
-
-	push de
-	push bc
-	farcall DoBadgeTypeBoosts
-	pop bc
-	pop de
 
 	ld a, [wCurType]
 	cp b
@@ -1290,6 +1286,7 @@ BattleCommand_Stab:
 .SkipStab:
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	ld b, a
 	ld hl, TypeMatchups
 
@@ -1409,6 +1406,7 @@ CheckTypeMatchup:
 	push bc
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	ld d, a
 	ld b, [hl]
 	inc hl
@@ -3003,6 +3001,7 @@ BattleCommand_DamageCalc:
 	ld b, a
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	cp b
 	jr nz, .DoneItem
 
@@ -4783,9 +4782,6 @@ CalcPlayerStats:
 	ld a, NUM_BATTLE_STATS
 	call CalcBattleStats
 
-	ld hl, BadgeStatBoosts
-	call CallBattleCore
-
 	call BattleCommand_SwitchTurn
 
 	ld hl, ApplyPrzEffectOnSpeed
@@ -5922,6 +5918,7 @@ CheckMoveTypeMatchesTarget:
 
 	ld a, BATTLE_VARS_MOVE_TYPE
 	call GetBattleVar
+	and TYPE_MASK
 	cp NORMAL
 	jr z, .normal
 
