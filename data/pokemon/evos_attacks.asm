@@ -223,44 +223,69 @@ BeedrillEvosAttacks:
 PidgeyEvosAttacks:
 	db EVOLVE_LEVEL, 18, PIDGEOTTO
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 5, SAND_ATTACK
-	db 9, GUST
-	db 15, QUICK_ATTACK
-	db 21, WHIRLWIND
-	db 29, WING_ATTACK
-	db 37, AGILITY
-	db 47, MIRROR_MOVE
+	db 1,  QUICK_ATTACK
+	db 3,  GUST
+	db 7,  SAND_ATTACK
+	db 10, WING_ATTACK
+	db 14, WHIRLWIND
+	db 17, SONIC_BOOM
+  db 19, WING_ATTACK
+  db 22, FEATHERDANCE
+  db 26, CRUSH_CLAW
+  db 30, MIRROR_MOVE
+  db 33, AIR_SLASH
+  db 36, ROOST
+  db 38, STEEL_WING
+  db 40, FOCUS_ENERGY
+  db 43, EXTREMESPEED
+  db 46, HURRICANE
+	db 50, DOUBLE_EDGE
+	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeottoEvosAttacks:
-	db EVOLVE_LEVEL, 36, PIDGEOT
+	db EVOLVE_LEVEL, 38, PIDGEOT
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, SAND_ATTACK
-	db 1, GUST
-	db 5, SAND_ATTACK
-	db 9, GUST
-	db 15, QUICK_ATTACK
-	db 23, WHIRLWIND
-	db 33, WING_ATTACK
-	db 43, AGILITY
-	db 55, MIRROR_MOVE
+	db 1,  QUICK_ATTACK
+	db 3,  GUST
+	db 7,  SAND_ATTACK
+	db 10, WING_ATTACK
+	db 14, WHIRLWIND
+	db 17, SONIC_BOOM
+  db 19, WING_ATTACK
+  db 22, FEATHERDANCE
+  db 26, CRUSH_CLAW
+  db 30, MIRROR_MOVE
+  db 33, AIR_SLASH
+  db 36, ROOST
+  db 38, STEEL_WING
+  db 40, FOCUS_ENERGY
+  db 43, EXTREMESPEED
+  db 46, HURRICANE
+	db 50, DOUBLE_EDGE
+	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 PidgeotEvosAttacks:
 	db 0 ; no more evolutions
-	db 1, TACKLE
-	db 1, SAND_ATTACK
-	db 1, GUST
-	db 1, QUICK_ATTACK
-	db 5, SAND_ATTACK
-	db 9, GUST
-	db 15, QUICK_ATTACK
-	db 23, WHIRLWIND
-	db 33, WING_ATTACK
-	db 46, AGILITY
-	db 61, MIRROR_MOVE
+	db 1,  QUICK_ATTACK
+	db 3,  GUST
+	db 7,  SAND_ATTACK
+	db 10, WING_ATTACK
+	db 14, WHIRLWIND
+	db 17, SONIC_BOOM
+  db 19, WING_ATTACK
+  db 22, FEATHERDANCE
+  db 26, CRUSH_CLAW
+  db 30, MIRROR_MOVE
+  db 33, AIR_SLASH
+  db 36, ROOST
+  db 38, STEEL_WING
+  db 40, FOCUS_ENERGY
+  db 43, EXTREMESPEED
+  db 46, HURRICANE
+	db 50, DOUBLE_EDGE
+	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
@@ -544,14 +569,14 @@ ZubatEvosAttacks:
 GolbatEvosAttacks:
 	db EVOLVE_HAPPINESS, TR_ANYTIME, CROBAT
 	db 0 ; no more evolutions
-	db 1, SCREECH
-	db 1, LEECH_LIFE
-	db 1, SUPERSONIC
-	db 6, SUPERSONIC
-	db 12, BITE
-	db 19, CONFUSE_RAY
-	db 30, WING_ATTACK
-	db 42, MEAN_LOOK
+	db 1,  SCREECH
+	db 3,  LEECH_LIFE
+	db 5,  BITE
+	db 8,  WING_ATTACK
+	db 11, CONFUSE_RAY
+	db 15, ABSORB
+	db 18, SWIFT
+	db 20, PURSUIT
 	db 55, HAZE
 	db 0 ; no more level-up moves
 
