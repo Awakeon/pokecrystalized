@@ -390,17 +390,24 @@ PidgeottoEvosAttacks:
 
 PidgeotEvosAttacks:
 	db 0 ; no more evolutions
-	dbw 1, TACKLE
-	dbw 1, SAND_ATTACK
-	dbw 1, GUST
-	dbw 1, QUICK_ATTACK
-	dbw 5, SAND_ATTACK
-	dbw 9, GUST
-	dbw 15, QUICK_ATTACK
-	dbw 23, WHIRLWIND
-	dbw 33, WING_ATTACK
-	dbw 46, AGILITY
-	dbw 61, MIRROR_MOVE
+	dbw 1,  QUICK_ATTACK
+	dbw 3,  GUST
+	dbw 7,  SAND_ATTACK
+	dbw 10, WING_ATTACK
+	dbw 14, WHIRLWIND
+	dbw 17, SONICBOOM
+    dbw 19, WING_ATTACK
+    dbw 22, CHARM
+    dbw 26, SLASH
+    dbw 30, MIRROR_MOVE
+    dbw 33, AIR_SLASH
+    dbw 36, RECOVER
+    dbw 38, STEEL_WING
+    dbw 40, FOCUS_ENERGY
+    dbw 43, EXTREMESPEED
+    dbw 46, AEROBLAST
+    dbw 50, DOUBLE_EDGE
+    dbw 55, SKY_ATTACK
 	db 0 ; no more level-up moves
 
 RattataEvosAttacks:
