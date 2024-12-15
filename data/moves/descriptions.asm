@@ -256,6 +256,7 @@ MoveDescriptions1:
 	dw RockSmashDescription
 	dw WhirlpoolDescription
 	dw BeatUpDescription
+	dw AirSlashDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1264,3 +1265,7 @@ WhirlpoolDescription:
 BeatUpDescription:
 	db   "Party #MON join"
 	next "in the attack.@"
+
+AirSlashDescription:
+	db   "Cuts target with"
+	next "blades of wind.@"
