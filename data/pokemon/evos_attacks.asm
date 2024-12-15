@@ -228,17 +228,17 @@ PidgeyEvosAttacks:
 	db 7,  SAND_ATTACK
 	db 10, WING_ATTACK
 	db 14, WHIRLWIND
-	db 17, SONIC_BOOM
-  db 19, WING_ATTACK
-  db 22, FEATHERDANCE
-  db 26, CRUSH_CLAW
-  db 30, MIRROR_MOVE
-  db 33, AIR_SLASH
-  db 36, ROOST
-  db 38, STEEL_WING
-  db 40, FOCUS_ENERGY
-  db 43, EXTREMESPEED
-  db 46, HURRICANE
+	db 17, SONICBOOM
+    db 19, WING_ATTACK
+    db 22, CHARM
+    db 26, SLASH
+    db 30, MIRROR_MOVE
+    db 33, AIR_SLASH
+    db 36, RECOVER
+    db 38, STEEL_WING
+    db 40, FOCUS_ENERGY
+    db 43, EXTREMESPEED
+    db 46, AEROBLAST
 	db 50, DOUBLE_EDGE
 	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
@@ -251,17 +251,17 @@ PidgeottoEvosAttacks:
 	db 7,  SAND_ATTACK
 	db 10, WING_ATTACK
 	db 14, WHIRLWIND
-	db 17, SONIC_BOOM
-  db 19, WING_ATTACK
-  db 22, FEATHERDANCE
-  db 26, CRUSH_CLAW
-  db 30, MIRROR_MOVE
-  db 33, AIR_SLASH
-  db 36, ROOST
-  db 38, STEEL_WING
-  db 40, FOCUS_ENERGY
-  db 43, EXTREMESPEED
-  db 46, HURRICANE
+	db 17, SONICBOOM
+    db 19, WING_ATTACK
+    db 22, CHARM
+    db 26, SLASH
+    db 30, MIRROR_MOVE
+    db 33, AIR_SLASH
+    db 36, RECOVER
+    db 38, STEEL_WING
+    db 40, FOCUS_ENERGY
+    db 43, EXTREMESPEED
+    db 46, AEROBLAST
 	db 50, DOUBLE_EDGE
 	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
@@ -273,17 +273,17 @@ PidgeotEvosAttacks:
 	db 7,  SAND_ATTACK
 	db 10, WING_ATTACK
 	db 14, WHIRLWIND
-	db 17, SONIC_BOOM
-  db 19, WING_ATTACK
-  db 22, FEATHERDANCE
-  db 26, CRUSH_CLAW
-  db 30, MIRROR_MOVE
-  db 33, AIR_SLASH
-  db 36, ROOST
-  db 38, STEEL_WING
-  db 40, FOCUS_ENERGY
-  db 43, EXTREMESPEED
-  db 46, HURRICANE
+	db 17, SONICBOOM
+    db 19, WING_ATTACK
+    db 22, CHARM
+    db 26, SLASH
+    db 30, MIRROR_MOVE
+    db 33, AIR_SLASH
+    db 36, RECOVER
+    db 38, STEEL_WING
+    db 40, FOCUS_ENERGY
+    db 43, EXTREMESPEED
+    db 46, AEROBLAST
 	db 50, DOUBLE_EDGE
 	db 55, SKY_ATTACK
 	db 0 ; no more level-up moves
