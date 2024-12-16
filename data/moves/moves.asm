@@ -57,8 +57,8 @@ Moves1:
 	move EFFECT_RAMPAGE,            90, NORMAL,       PHYSICAL,  100, 20,   0      ;THRASH
 	move EFFECT_RECOIL_HIT,        120, NORMAL,       PHYSICAL,  100, 15,   0      ;DOUBLE_EDGE
 	move EFFECT_DEFENSE_DOWN,        0, NORMAL,       PHYSICAL,  100, 30,   0      ;TAIL_WHIP
-	move EFFECT_POISON_HIT,         15, POISON,       PHYSICAL,  100, 35,  30      ;POISON_STING
-	move EFFECT_POISON_MULTI_HIT,   30, BUG,          PHYSICAL,  100, 20,  20      ;TWINEEDLE
+	move EFFECT_POISON_HIT,         40, POISON,       PHYSICAL,  100, 35,  30      ;POISON_STING
+	move EFFECT_POISON_MULTI_HIT,   35, BUG,          PHYSICAL,  100, 20,  20      ;TWINEEDLE
 	move EFFECT_MULTI_HIT,          25, BUG,          PHYSICAL,   85, 20,   0      ;PIN_MISSILE
 	move EFFECT_DEFENSE_DOWN,        0, NORMAL,       STATUS,  100, 30,     0      ;LEER
 	move EFFECT_FLINCH_HIT,         60, DARK,         PHYSICAL,  100, 25,  30      ;BITE
@@ -153,9 +153,9 @@ Moves1:
 	move EFFECT_SP_DEF_UP_2,         0, PSYCHIC_TYPE, STATUS,  100, 20,     0      ;AMNESIA
 	move EFFECT_ACCURACY_DOWN,       0, PSYCHIC_TYPE, STATUS,   80, 15,     0      ;KINESIS
 	move EFFECT_HEAL,                0, NORMAL,       STATUS,  100, 10,     0      ;SOFTBOILED
-	move EFFECT_JUMP_KICK,          85, FIGHTING,     PHYSICAL,   90, 20,   0      ;HI_JUMP_KICK
+	move EFFECT_JUMP_KICK,          110, FIGHTING,     PHYSICAL,   90, 20,   0      ;HI_JUMP_KICK
 	move EFFECT_PARALYZE,            0, NORMAL,       STATUS,   75, 30,     0      ;GLARE
-	move EFFECT_DREAM_EATER,       100, PSYCHIC_TYPE, SPECIAL,  100, 15,    0      ;DREAM_EATER
+	move EFFECT_DREAM_EATER,       120, PSYCHIC_TYPE, SPECIAL,  100, 15,    0      ;DREAM_EATER
 	move EFFECT_POISON,              0, POISON,       STATUS,   55, 40,     0      ;POISON_GAS
 	move EFFECT_MULTI_HIT,          15, NORMAL,       STATUS,   85, 20,     0      ;BARRAGE
 	move EFFECT_LEECH_HIT,          80, BUG,          PHYSICAL,  100, 15,   0      ;LEECH_LIFE
