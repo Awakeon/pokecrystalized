@@ -158,4 +158,5 @@ MoveEffectsPointers:
 	dw BeatUp
 	dw Fly
 	dw DefenseCurl
+    dw Moonblade
 	assert_table_length NUM_MOVE_EFFECTS

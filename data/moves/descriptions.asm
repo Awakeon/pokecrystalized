@@ -257,6 +257,7 @@ MoveDescriptions1:
 	dw WhirlpoolDescription
 	dw BeatUpDescription
 	dw AirSlashDescription
+	dw MoonBladeDescription
 .IndirectEnd::
 
 InvalidMoveDescription:
@@ -1269,3 +1270,7 @@ BeatUpDescription:
 AirSlashDescription:
 	db   "Cuts target with"
 	next "blades of wind.@"
+
+MoonBladeDescription:
+	db   "Slashes the targt"
+	next "with moon light.@"
